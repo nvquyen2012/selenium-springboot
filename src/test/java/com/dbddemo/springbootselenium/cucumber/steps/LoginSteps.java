@@ -1,6 +1,7 @@
 package com.dbddemo.springbootselenium.cucumber.steps;
 
 import com.dbddemo.springbootselenium.annotations.LazyAutowired;
+import com.dbddemo.springbootselenium.annotations.TakeScreenshot;
 import com.dbddemo.springbootselenium.pages.HomePage;
 import com.dbddemo.springbootselenium.pages.LoginPage;
 import io.cucumber.java.en.Given;
@@ -19,6 +20,7 @@ public class LoginSteps {
     private LoginPage loginPage;
 
     @Given("I am on the login page")
+    @TakeScreenshot
     public void iAmOnTheLoginPage() {
         homePage
             .goToHomePage()
@@ -26,6 +28,7 @@ public class LoginSteps {
     }
 
     @When("I try to login with {string} and {string}")
+    @TakeScreenshot
     public void iTryToLoginWithAnd(String userName, String password) throws InterruptedException {
         loginPage
             .login(userName, password);
